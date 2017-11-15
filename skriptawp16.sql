@@ -33,7 +33,7 @@ brojugovora varchar(20) not null
 
 create table osoba(
 oib char(11) not null primary key,
-ime varchar(50) not null,
+ime varchar(50) not null default 'Ana',
 prezime varchar(50) not null,
 email varchar(100),
 spol boolean
