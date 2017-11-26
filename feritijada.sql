@@ -1,5 +1,5 @@
 drop database if exists edunovapp16;
-create database edunovapp16;
+create database edunovapp16 character set utf8;
 
 use edunovapp16;
 
@@ -40,8 +40,9 @@ utakmica int not null
 
 create table dogadaj(
 sifra int not null primary key auto_increment,
-grupa char(1) not null,
-knockout varchar(50) not null,
+vrsta varchar(30) not null,
+opis varchar(200) not null,
+vrijeme datetime not null,
 utakmica int not null,
 fakultet int not null
 );
@@ -56,3 +57,12 @@ alter table dogadaj add foreign key (fakultet) references fakultet(sifra);
 
 alter table fakultet add foreign key (domacin) references utakmica(sifra);
 alter table fakultet add foreign key (gost) references utakmica(sifra);
+
+insert into sport(sifra,naziv,opis) values 
+(null,'Nogomet','Nogometne utakmice'),
+(null,'Košarka','Kosarkasi'),
+(null,'Rukomet','Rukomet'),
+(null,'Odbojka','Odbojka'),
+(null,'Veslanje','Velsači');
+
+
