@@ -1,3 +1,4 @@
+# -uedunova -pedunova --default_character_set=utf8 < d:\SQLWP16\skriptapp16.sql
 drop database if exists edunovapp16;
 create database edunovapp16 character set utf8;
 
@@ -58,6 +59,8 @@ alter table dogadaj add foreign key (fakultet) references fakultet(sifra);
 alter table fakultet add foreign key (domacin) references utakmica(sifra);
 alter table fakultet add foreign key (gost) references utakmica(sifra);
 
+
+
 insert into sport(sifra,naziv,opis) values 
 (null,'Nogomet','Nogometne utakmice'),
 (null,'Košarka','Kosarkasi'),
@@ -66,3 +69,29 @@ insert into sport(sifra,naziv,opis) values
 (null,'Veslanje','Velsači');
 
 
+insert into sudac(sifra,ime,prezime,sport) values
+(null,'Miro', 'Đurić', 'Nogomet'),
+(null,'Karlo', 'Klarić', 'Rukomet'),
+(null,'Karlo', 'Marić', 'Košarka'),
+(null,'Mirko', 'Kokot', 'Nogomet'),
+(null,'Željko', 'Milić', 'Odbojka')
+;
+
+
+insert into utakmica(sifra,domacin, gost, mjesto, pocetak, trajanje, sport, sudac) values
+(null, 'FERIT', 'FER', 'Dvorana Gradski Vrt', '2017-12-10 02:00', 30, 1, 1),
+(null, 'FERIT', 'FESB', 'Dvorana Gradski Vrt', '2017-12-11 02:00', 30, 1, 2),
+(null, 'FER', 'FESB', 'Dvorana Gradski Vrt', '2017-12-11 12:00', 30, 2, 2)
+; 
+
+insert into fakultet(sifra, naziv, grad, drzava, domacin, gost) values
+	(null, 'FESB', 'Split', 'Hrvatska', 1, 2),
+	(null, 'FERIT', 'Osijek', 'Hrvatska', 1, 2),
+	(null, 'FER', 'Zagreb', 'Hrvatska', 1, 2),
+	(null, 'FTN', 'Novi Sad', 'Srbija', 1, 2),
+	(null, 'FOI', 'Varaždin', 'Hrvatska', 1, 2)
+	;
+
+insert into dogadaj(sifra, vrsta, opis, vrijeme, utakmica, fakultet) values
+	(null, 'Grupa', 'Utakmice po grupama', '2017-06-22', 1, 2),
+	(null, 'Knockout', 'Utakmica za prolazak dalje, u slučaju neriješenog ide se na produžetke', '2017-09-23', 2, 2 );
