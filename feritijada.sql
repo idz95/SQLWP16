@@ -4,6 +4,15 @@ create database edunovapp16 character set utf8;
 
 use edunovapp16;
 
+create table operater(
+sifra int not null primary key auto_increment,
+email varchar(50) not null,
+lozinka char(32) not null,
+ime varchar(50) not null,
+prezime varchar(50) not null,
+uloga varchar(20) not null
+);
+
 create table sport(
 sifra int not null primary key auto_increment,
 naziv varchar(50) not null,
@@ -66,7 +75,11 @@ insert into sport(sifra,naziv,opis) values
 (null,'Košarka','Kosarkasi'),
 (null,'Rukomet','Rukomet'),
 (null,'Odbojka','Odbojka'),
-(null,'Veslanje','Velsači');
+(null,'Veslanje','Veslači');
+
+insert into operater (email,lozinka,ime,prezime,uloga) values 
+('admin@hns.hr', md5('e'),'Admin','admin','admin'),
+('sudac@hns.hr', md5('e'),'Miro','Kuzma','oper');
 
 
 insert into sudac(sifra,ime,prezime,sport) values
@@ -80,6 +93,8 @@ insert into sudac(sifra,ime,prezime,sport) values
 
 insert into utakmica(sifra,domacin, gost, mjesto, pocetak, trajanje, sport, sudac) values
 (null, 'FERIT', 'FER', 'Dvorana Gradski Vrt', '2017-12-10 02:00', 30, 1, 1),
+(null, 'FERIT', 'FESB', 'Dvorana Gradski Vrt', '2017-12-11 02:00', 30, 1, 2),
+(null, 'FERIT', 'FESB', 'Dvorana Gradski Vrt', '2017-12-11 02:00', 30, 1, 2),
 (null, 'FERIT', 'FESB', 'Dvorana Gradski Vrt', '2017-12-11 02:00', 30, 1, 2),
 (null, 'FER', 'FESB', 'Dvorana Gradski Vrt', '2017-12-11 12:00', 30, 2, 2)
 ; 
